@@ -1,0 +1,76 @@
+<!--<h1>{{title}}</h1>
+        <nav>
+          <a class="btn btn-primary" routerLink="/dashboard" routerLinkActive = "active">Dashboard</a>
+          <a routerLink="/heroes" routerLinkActive = "active">Heroes</a>
+        </nav>
+        -->
+ <div id="page-wrapper" >
+<div class="row">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper"  class="col-md-2">
+      <ul class="sidebar">
+        <li class="sidebar-main">
+          <a >
+            Customer Admin
+            <span class="menu-icon glyphicon glyphicon-transfer"></span>
+          </a>
+        </li>
+        <li class="sidebar-title"><span>NAVIGATION</span></li>
+        <li class="sidebar-list">
+          <a routerLink="ct/dashboard" routerLinkActive="sidebar-activated" >Dashboard<span class="menu-icon fa fa-tachometer"></span></a>
+        </li>
+        <li class="sidebar-list">
+          <a routerLink="/ct/messages" routerLinkActive="sidebar-activated">Message Queue Inbox<span class="menu-icon fa fa-users"></span></a>
+            <ul>
+                <li><a routerLink="/ct/submitted" routerLinkActive="sidebar-activated">Submitted</a></li>
+                <li><a routerLink="/ct/queued" routerLinkActive="sidebar-activated">Queued</a></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- End Sidebar -->
+
+    <div id="content-wrapper" class="col-md-9">
+      <div class="page-content">
+
+        <!-- Header Bar -->
+        <div class="row header">
+          <div class="col-xs-12">
+            <div class="user pull-right">
+              <div class="item dropdown" uib-dropdown>
+                <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+                  <img src="../assets/img/avatar.jpg">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="link">
+                    Delson
+                  </li>
+                  <li class="divider"></li>
+
+                  <li class="link">
+                    <a href="#">
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <div class="meta">
+              <div class="page">
+                Dashboard
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- End Header Bar -->
+
+
+        <!-- Main Content -->
+        <router-outlet></router-outlet>
+
+      </div><!-- End Page Content -->
+    </div><!-- End Content Wrapper -->
+    </div>
+  </div><!-- End Page Wrapper -->

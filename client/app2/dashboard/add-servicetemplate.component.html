@@ -1,0 +1,233 @@
+
+<div *ngIf="servicetemplate" class="">
+    <h2>Add New Service Template</h2>
+  <div class="form-group row pull-right" >
+    <button class="btn btn-primary " (click)="addServiceTemplate()">Add ServiceTemplate settings</button>
+     <button class="btn btn-default " (click)="goBack()">Back</button>
+  </div>
+  <div class="form-group row">
+    <label for="name" class="col-xs-2 col-form-label">Name</label>
+    <div class="col-xs-4">
+      <input  class="form-control" type="text" [(ngModel)]="servicetemplate.name" id="name" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="state" class="col-xs-2 col-form-label">State</label>
+    <div class="col-xs-4">
+      <select id="state" [(ngModel)]="servicetemplate.state">
+        <option value="1">Active</option>
+        <option value="0">Inactive</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="log_payload" class="col-xs-2 col-form-label">LogPayload</label>
+    <div class="col-xs-4">
+      <input  class="form-control" type="text" [(ngModel)]="servicetemplate.log_payload"  id="log_payload" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="maxQueueTime" class="col-xs-2 col-form-label">maxQueueTime</label>
+    <div class="col-xs-4">
+      <input  class="form-control" type="text" [(ngModel)]="servicetemplate.max_queuetime"  id="maxQueueTime" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="zeroQueueTime" class="col-xs-2 col-form-label">zeroQueueTime</label>
+    <div class="col-xs-4">
+      <input  class="form-control" type="text" [(ngModel)]="servicetemplate.zero_queuetime"  id="zeroQueueTime" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="forwardAppIContainer" class="col-xs-2 col-form-label">forwardAppIContainer</label>
+    <div class="col-xs-4">
+      <input  class="form-control" type="text" [(ngModel)]="servicetemplate.forward_msg_header"  id="forwardAppIContainer" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="udidWakeupNotification" class="col-xs-2 col-form-label">udidWakeupNotification</label>
+    <div class="col-xs-4">
+      <input  class="form-control" type="text" [(ngModel)]="servicetemplate.notify_on_wakeup"  id="udidWakeupNotification" />
+    </div>
+  </div>
+<!--
+<div class="form-group row">
+  <label for="defaultProfile" class="col-xs-2 col-form-label">defaultProfile</label>
+  <div class="col-xs-4">
+    <select id="defaultProfile"  [(ngModel)]="servicetemplate.default_profile">
+      <option *ngFor="let c of connectionprofiles;" value={{c._id}}>{{c._id}}</option>
+    </select>
+  </div>
+
+</div>-->
+  <div class="form-group row">
+    <label for="wakeupDuration" class="col-xs-2 col-form-label">wakeupDuration</label>
+    <div class="col-xs-4">
+      <input  class="form-control" type="text" [(ngModel)]="servicetemplate.wakeup_duration"  id="wakeupDuration" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="quotaMsg" class="col-xs-2 col-form-label">quotaMsg</label>
+    <div class="col-xs-4">
+      <input  class="form-control" type="text" [(ngModel)]="servicetemplate.quota_msg"  id="quotaMsg" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="quotaMbytes" class="col-xs-2 col-form-label">quotaMbytes</label>
+    <div class="col-xs-4">
+      <input  class="form-control" type="text" [(ngModel)]="servicetemplate.quota_mbytes"  id="quotaMbytes" />
+    </div>
+  </div>
+
+  <div class="form-group row" >
+    <label class="col-xs-2 col-form-label" for="dedicated">DedicatedConnectionProfile</label>
+    <div class="col-xs-4">
+      <input  class="form-control" type="checkbox" [(ngModel)]="servicetemplate.dedicated_connection_profile" (change)="dedicate_changed();" id="dedicated" />
+    </div>
+  </div>
+</div>
+<!--
+<div class="form-group row" >
+  <label class="col-xs-2 col-form-label" for="dedicated">Connection Profiles:</label>
+  <div class="col-xs-4">
+
+    <table class="table table-striped col-md-9" [mfData]="connectionprofiles" [mfRowsOnPage]="rowsOnPage" #mfc="mfDataTable" >
+      <thead>
+      <tr>
+        <th >
+          <mfDefaultSorter by="name">Profile Priority</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter>ConnectionType</mfDefaultSorter>
+        </th>
+        <th >
+          <mfDefaultSorter >Split/Match</mfDefaultSorter>
+        </th>
+        <th >
+          <mfDefaultSorter>Server</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter>RatingGroup</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter>State</mfDefaultSorter>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of mfc.data;let i = index;">
+        <td>{{item.profile_priority}}</td>
+        <td >{{item.connection_type}}</td>
+        <td>NetworkLabel/{{item.match}}</td>
+        <td>{{item.customer_backhaul_settings[0].remote_host}}</td>
+        <td>{{item.rating_group}}</td>
+        <td><input type="checkbox" [(ngModel)]="item.state" disabled="true"/></td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="6">
+          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+<h2>Connection Profile 2</h2>
+<div class="form-group row">
+  <label for="profile_priority" class="col-xs-2 col-form-label">Priority</label>
+  <div class="col-xs-4">
+    <select id="profile_priority" [disabled]="!input_disabled" [(ngModel)]="newconnection.profile_priority">
+      <option value="1" >Main</option>
+      <option value="2">Swap</option>
+    </select>
+  </div>
+</div>
+<div class="form-group row">
+  <label for="connection_type"class="col-xs-2 col-form-label">Connection Type</label>
+  <div class="col-xs-4">
+    <select id="connection_type"  [disabled]="!input_disabled"  [(ngModel)]="newconnection.connection_type">
+      <option value="Websocket">Websocket</option>
+      <option value="CloudAMQP">CloudAMQP</option>
+      <option value="SystemAMQP">SystemAMQP</option>
+      <option value="RestAPI">RestAPI</option>
+      <option value="MQTT-SN">MQTT-SN</option>
+    </select>
+  </div>
+</div>
+<div class="form-group row">
+  <label for="assigned_server" class="col-xs-2 col-form-label">Assigned Server</label>
+  <div class="col-xs-4">
+    <select id="assigned_server" [disabled]="!input_disabled"  [(ngModel)]="newconnection.assigned_server">
+      <option value="Server-Munich" >Server-Munich</option>
+    </select>
+  </div>
+</div>
+<div class="form-group row">
+  <label for="loginid" class="col-xs-2 col-form-label">Login ID</label>
+  <div class="col-xs-4">
+    <input  class="form-control" type="text" [disabled]="!input_disabled"  [(ngModel)]="newconnection.customer_backhaul_settings[0].loginid"  id="loginid" />
+  </div>
+</div>
+<div class="form-group row">
+  <label for="password" class="col-xs-2 col-form-label">Password</label>
+  <div class="col-xs-4">
+    <input  class="form-control" type="text" [disabled]="!input_disabled"  [(ngModel)]="newconnection.customer_backhaul_settings[0].password"  id="password" />
+  </div>
+</div>
+<div class="form-group row">
+  <label for="remote_host" class="col-xs-2 col-form-label">HOST (IP)</label>
+  <div class="col-xs-4">
+    <input  class="form-control" type="text"  [disabled]="!input_disabled" [(ngModel)]="newconnection.customer_backhaul_settings[0].remote_host"  id="remote_host" />
+  </div>
+</div>
+<div class="form-group row">
+  <label for="token_id" class="col-xs-2 col-form-label">Static Token ID</label>
+  <div class="col-xs-4">
+    <input  class="form-control" type="text" [disabled]="!input_disabled"  [(ngModel)]="newconnection.customer_backhaul_settings[0].token_id"  id="token_id" />
+  </div>
+</div>
+<div class = "AMQP_RestAPI" *ngIf="newconnection.connection_type == 'CloudAMQP' || newconnection.connection_type == 'RestAPI'">
+  <div class="form-group row">
+    <label for="uplink_route" class="col-xs-2 col-form-label">Uplink Route</label>
+    <div class="col-xs-4">
+      <input  class="form-control" type="text" [disabled]="!input_disabled"  [(ngModel)]="newconnection.customer_backhaul_settings[0].uplink_route"  id="uplink_route" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="downlink_route" class="col-xs-2 col-form-label">Downlink Route</label>
+    <div class="col-xs-4">
+      <input  class="form-control" type="text" [disabled]="!input_disabled"  [(ngModel)]="newconnection.customer_backhaul_settings[0].downlink_route"  id="downlink_route" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="error_route" class="col-xs-2 col-form-label">Error Route</label>
+    <div class="col-xs-4">
+      <input  class="form-control" type="text" [disabled]="!input_disabled"  [(ngModel)]="newconnection.customer_backhaul_settings[0].error_route"  id="error_route" />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="hello_route" class="col-xs-2 col-form-label">Hello Route</label>
+    <div class="col-xs-4">
+      <input  class="form-control" type="text"  [disabled]="!input_disabled" [(ngModel)]="newconnection.customer_backhaul_settings[0].hello_route"  id="hello_route" />
+    </div>
+  </div>
+  <div class = "AMQP" *ngIf="newconnection.connection_type == 'CloudAMQP'">
+    <div class="form-group row">
+      <label for="amqp_pub_code" class="col-xs-2 col-form-label">PUB Code</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text"  [disabled]="!input_disabled" [(ngModel)]="newconnection.customer_backhaul_settings[0].amqp_pub_code"  id="amqp_pub_code" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="amqp_sub_code" class="col-xs-2 col-form-label">SUB Code</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text"  [disabled]="!input_disabled" [(ngModel)]="newconnection.customer_backhaul_settings[0].amqp_sub_code"  id="amqp_sub_code" />
+      </div>
+    </div>
+    </div>
+</div>
+<button class="btn btn-primary" [disabled]="!input_disabled"  (click)="addConnectionProfile()">Add Connection profile</button>
+-->

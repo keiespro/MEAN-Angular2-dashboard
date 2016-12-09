@@ -1,0 +1,51 @@
+
+<button class="btn btn-primary pull-right" (click)="gotoAddProfile()" >Add new Profile</button>
+<table class="table table-striped col-md-9" [mfData]="profiles" [mfRowsOnPage]="rowsOnPage" #mf="mfDataTable" >
+    <thead>
+    <tr>
+        <th>
+            <mfDefaultSorter by="name">Name</mfDefaultSorter>
+        </th>
+        <th >
+            <mfDefaultSorter by="amount_per_msg">amountPerMsg</mfDefaultSorter>
+        </th>
+        <th >
+            <mfDefaultSorter by="amount_per_kbyte">amountPerKbyte</mfDefaultSorter>
+        </th>
+      <th >
+        <mfDefaultSorter by="amount_per_api">amountPerApi</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter by="state">state</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter by="unit">unit</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter >Customer</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter>Client</mfDefaultSorter>
+      </th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let profile of mf.data;let i = index;">
+      <td>{{profile.name}}</td>
+      <td>{{profile.amount_per_msg}}</td>
+      <td>{{profile.amount_per_kbyte}}</td>
+      <td>{{profile.amount_per_api}}</td>
+      <td><input type="checkbox" [(ngModel)]="profile.state" disabled="true"/></td>
+      <td>{{profile.unit}}</td>
+      <td><button class="btn btn-info" (click)="editProfile(i)" >Edit</button> <button class="btn btn-danger" (click) = "deleteProfile(i)">Delete</button></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="6">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>

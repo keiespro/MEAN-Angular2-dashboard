@@ -1,0 +1,199 @@
+<h1>Service Templates</h1>
+<button class="btn btn-primary pull-right" (click)="gotoAddServiceTemplate()" >Add new SeriveTemplate</button>
+<table class="table table-striped col-md-9" [mfData]="servicetemplates" [mfRowsOnPage]="rowsOnPage_st" #mf="mfDataTable" >
+  <thead>
+  <tr>
+    <th >
+      <mfDefaultSorter by="name">Service Template</mfDefaultSorter>
+    </th>
+    <th>
+      <mfDefaultSorter>Profile State</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter >Service Group</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter>Dev count(sum/active)</mfDefaultSorter>
+    </th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of mf.data;let i = index;">
+    <td>{{item.name}}</td>
+    <td><input type="checkbox" [checked]="item.state == 1" disabled="true"/></td>
+    <td >Service Group Goes here</td>
+    <td>{{item.dev_sum}}/{{item.dev_active}}</td>
+    <td><button class="btn btn-info" (click)="detailServiceTemplate(i)">Details</button> <button class="btn btn-danger" (click) = "deleteSeriveTemplate(i)">Delete</button></td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="5">
+      <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+    </td>
+  </tr>
+  </tfoot>
+</table>
+
+<h1>Devices</h1>
+<table class="table table-striped col-md-9" [mfData]="devices" [mfRowsOnPage]="rowsOnPage_devices" #mfd="mfDataTable" >
+  <thead>
+  <tr>
+    <th >
+      <mfDefaultSorter by="udid">UDID</mfDefaultSorter>
+    </th>
+    <th>
+      <mfDefaultSorter by="imsi">imsi</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="imei">imei</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="iccid">iccid</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="euiccid">euiccid</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="last_activity">last activity</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="ip">ip</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter >State</mfDefaultSorter>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of mfd.data;let i = index;">
+    <td>{{item.udid}}</td>
+    <td>{{item.imsi}}</td>
+    <td>{{item.imei}}</td>
+    <td>{{item.iccid}}</td>
+    <td>{{item.euiccid}}</td>
+    <td>{{item.last_activity}}</td>
+    <td>{{item.ip}}</td>
+    <td>State here</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="9">
+      <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+    </td>
+  </tr>
+  </tfoot>
+</table>
+
+<h1>Contracts</h1>
+<table class="table table-striped col-md-9" [mfData]="contracts" [mfRowsOnPage]="rowsOnPage_contracts" #mfc="mfDataTable" >
+  <thead>
+  <tr>
+    <th>
+      <mfDefaultSorter by="contract_number">ContractId</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="customer_name">Duration</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="account_balance">MinDevices</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter >Signed</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter>State</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="tariff_id">tariff Profile</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="contract_type">Devices Attached</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="tariff_id">total Msg</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="tariff_id">balance</mfDefaultSorter>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let contract of mfc.data;let i = index;">
+    <td>{{contract.contract_id}}</td>
+    <td>{{contract.contract_duration_months}}</td>
+    <td>{{contract.mindevices}}</td>
+    <td><input type="checkbox" [(ngModel)]="contract.signed" disabled="true"/></td>
+    <td><input type="checkbox" [(ngModel)]="contract.state" disabled="true"/></td>
+    <td>{{contract.tariff_id}}</td>
+    <td>{{contract.devices_attached}}</td>
+    <td>{{contract.total_msg}}</td>
+    <td>{{contract.balance}}</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="9">
+      <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+    </td>
+  </tr>
+  </tfoot>
+</table>
+
+<h1>Tariff Profiles</h1>
+<table class="table table-striped col-md-9" [mfData]="profiles" [mfRowsOnPage]="rowsOnPage_profiles" #mfp="mfDataTable" >
+  <thead>
+  <tr>
+    <th>
+      <mfDefaultSorter by="name">Name</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="unit">unit</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="state">state</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="amount_per_msg">amountPerMsg</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="amount_per_kbyte">amountPerKbyte</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="amount_per_api">amountPerApi</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="queueduration">queueDuration</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="maxpayloadkb">maxPayloadKB</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="payloadxcation">payloadXCAction</mfDefaultSorter>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let profile of mfp.data;let i = index;">
+    <td>{{profile.name}}</td>
+    <td><input type="checkbox" [(ngModel)]="profile.state" disabled="true"/></td>
+    <td>{{profile.unit}}</td>
+    <td>{{profile.amount_per_msg}}</td>
+    <td>{{profile.amount_per_kbyte}}</td>
+    <td>{{profile.amount_per_api}}</td>
+    <td>{{profile.queueduration}}</td>
+    <td>{{profile.maxpayloadkb}}</td>
+    <td>{{profile.payloadxcation}}</td>
+
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="9">
+      <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+    </td>
+  </tr>
+  </tfoot>
+</table>

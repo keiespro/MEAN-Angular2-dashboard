@@ -1,0 +1,40 @@
+
+
+    <h2>{{title}}</h2>
+    <div class="form-group row">
+      <label for="name" class="col-xs-2 col-form-label">Name</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="network.label_name"  id="name" placeholder="Network Name"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="description" class="col-xs-2 col-form-label">Description</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="network.label_description"  id="description" placeholder="Description"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="port" class="col-xs-2 col-form-label">Port</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="network.port"  id="port" placeholder="Port"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="protocol" class="col-xs-2 col-form-label">Protocol</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="network.protocol"  id="protocol" placeholder="Protocol"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="customer-name" class="col-xs-2 col-form-label">Customer Name</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="network.customer_name"  id="customer-name" placeholder="Customer Name"/>
+      </div>
+    </div>
+<div class="form-group row">
+  <div class="col-xs-4">
+	    <button class="btn btn-primary" (click)="add()">{{btn_name}}</button>
+	    <button class="btn " (click)="goBack()">Back</button>
+  </div>
+</div>
+

@@ -1,0 +1,91 @@
+<div class="col-md-3">
+  <table class="table table-striped col-md-12" [mfData]="servicetemplates" [mfRowsOnPage]="rowsOnPage_st" #mf="mfDataTable" >
+    <thead>
+    <tr>
+      <th >
+        <mfDefaultSorter by="name">Service Template</mfDefaultSorter>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of mf.data;let i = index;">
+      <td><label>
+        <input type="radio" name="options" (click)="selected_st_id=i;st_selected(item);"
+               />
+        {{item.name}}
+      </label></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td>
+        <mfBootstrapPaginator [rowsOnPageSet]="[10,25]"></mfBootstrapPaginator>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+
+  </div>
+<div class="col-md-9">
+    <table class="table table-striped col-md-9" [mfData]="messages" [mfRowsOnPage]="rowsOnPage_msg" #mfm="mfDataTable" >
+    <thead>
+    <tr>
+      <th>
+        <mfDefaultSorter by="udid">udid</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter by="imsi">imsi</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter by="ip">ip</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter by="error">error</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter by="queue_entry_time">date</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter by="imei">imei</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter by="iccid">iccid</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter by="ueiccid">euiccid</mfDefaultSorter>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th><input type='text' placeholder='udid...' (keyup)='updateFilter($event,"udid")'/></th>
+      <th ><input type='text' placeholder='imsi...' (keyup)='updateFilter($event,"imsi")'/>
+      </th>
+      <th ><input type='text' placeholder='ip...' (keyup)='updateFilter($event,"ip")'/></th>
+      <th ><input type='text' placeholder='error...' (keyup)='updateFilter($event,"error")'/></th>
+      <th ><input type='text' placeholder='date...' (keyup)='updateFilter($event,"date")'/></th>
+      <th ><input type='text' placeholder='imei...' (keyup)='updateFilter($event,"imei")'/></th>
+      <th ><input type='text' placeholder='iccid...' (keyup)='updateFilter($event,"iccid")'/></th>
+      <th ><input type='text' placeholder='euiccid...' (keyup)='updateFilter($event,"euiccid")'/></th>
+
+    </tr>
+    <tr *ngFor="let message of mfm.data;let i = index;">
+      <td>{{message.udid}}</td>
+      <td>{{message.imsi}}</td>
+      <td>{{message.ip}}</td>
+      <td>{{message.error}}</td>
+      <td>{{message.queue_entry_time.date | date}}</td>
+      <td>{{message.imei}}</td>
+      <td>{{message.iccid}}</td>
+      <td>{{message.ueiccid}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="9">
+        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>

@@ -1,0 +1,5 @@
+{ "_id" : { "$oid" : "5748385d6f1cad0a547164f2" }, "region_id" : "1", "customer_id" : "", "label_name" : "del.com", "label_description" : "test network label", "port" : 3000, "protocol" : "udp" }
+{ "_id" : { "$oid" : "5748394a6f1cad0a547164f4" }, "region_id" : "1", "customer_id" : "", "label_name" : "doodle", "label_description" : "test network label 2", "port" : 3001, "protocol" : "udp" }
+{ "_id" : { "$oid" : "583df9095e94e5565c427d30" }, "region_id" : "2", "customer_id" : "", "label_name" : "footiot", "label_description" : "this label is for food verticals", "port" : 2500, "protocol" : "udp" }
+{ "_id" : { "$oid" : "583df9f15e94e5565c427d32" }, "region_id" : "", "customer_id" : "", "label_name" : "catering", "label_description" : "catering verticals", "port" : 2400, "protocol" : "tcp" }
+{ "_id" : { "$oid" : "583dfad95e94e5565c427d36" }, "region_id" : "", "customer_id" : "", "label_name" : "ratail.iot", "label_description" : "ratail and more verticals", "port" : 5400, "protocol" : "tcp" }

@@ -1,0 +1,35 @@
+
+
+<table class="table table-striped col-md-9" [mfData]="dashes" [mfRowsOnPage]="rowsOnPage" #mf="mfDataTable" >
+    <thead>
+    <tr>
+        <th style="width: 20%">
+            <mfDefaultSorter by="regions">Regions</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="st_a">Service templates(a/na)</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="contracts_sum">Contracts sum</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="customers_sum">Customers sum</mfDefaultSorter>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of mf.data">
+        <td>{{item.regions}}</td>
+        <td>{{item.st_a}}/{{item.st_na}}</td>
+        <td >{{item.contracts_sum}}</td>
+        <td>{{item.customers_sum}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>

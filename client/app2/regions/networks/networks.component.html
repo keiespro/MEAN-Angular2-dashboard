@@ -1,0 +1,41 @@
+
+<button class="btn btn-primary pull-right" (click)="gotoAddNetwork()" >Add new Network</button>
+<table class="table table-striped col-md-9" [mfData]="networks" [mfRowsOnPage]="rowsOnPage" #mf="mfDataTable" >
+    <thead>
+    <tr>
+        <th>
+            <mfDefaultSorter by="label_name">Name</mfDefaultSorter>
+        </th>
+        <th >
+            <mfDefaultSorter by="label_description">Description</mfDefaultSorter>
+        </th>
+        <th >
+            <mfDefaultSorter by="port">Port</mfDefaultSorter>
+        </th>
+      <th >
+        <mfDefaultSorter by="protocol">Protocol</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter by="customer_name">Customer name</mfDefaultSorter>
+      </th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let network of mf.data;let i = index;">
+        <td>{{network.label_name}}</td>
+        <td>{{network.label_description}}</td>
+      <td >{{network.port}}</td>
+      <td>{{network.protocol}}</td>
+      <td >{{network.customer_name}}</td>
+      <td><button class="btn btn-info" (click)="editNetwork(i)">Edit</button> <button class="btn btn-danger" (click) = "deleteNetwork(i)">Delete</button></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="6">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,1 @@
+{ "_id" : { "$oid" : "57483bbc6f1cad0a547164fe" }, "customer_id" : "574839f56f1cad0a547164fc", "state" : 1, "name" : "Bart", "surname" : "Smith", "position" : "technical engineer", "email_id" : "b.smith@microhard.com", "password" : "bartsmith", "account_type" : "API-Portal-Access", "role" : "Admin" }

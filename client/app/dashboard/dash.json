@@ -1,0 +1,15 @@
+
+[
+{"id":1,"regions":"England1","st_a":10,"st_na":7,"contracts_sum":9,"customers_sum":36},
+{"id":2,"regions":"Portugal","st_a":10,"st_na":7,"contracts_sum":9,"customers_sum":8},
+{"id":3,"regions":"US_Taxes","st_a":10,"st_na":7,"contracts_sum":9,"customers_sum":15},
+{"id":1,"regions":"England1","st_a":10,"st_na":7,"contracts_sum":9,"customers_sum":36},
+{"id":2,"regions":"Portugal","st_a":10,"st_na":7,"contracts_sum":9,"customers_sum":8},
+{"id":3,"regions":"US_Taxes","st_a":10,"st_na":7,"contracts_sum":9,"customers_sum":15},
+{"id":1,"regions":"England1","st_a":10,"st_na":7,"contracts_sum":9,"customers_sum":36},
+{"id":2,"regions":"Portugal","st_a":10,"st_na":7,"contracts_sum":9,"customers_sum":8},
+{"id":3,"regions":"US_Taxes","st_a":10,"st_na":7,"contracts_sum":9,"customers_sum":15},
+{"id":1,"regions":"England1","st_a":10,"st_na":7,"contracts_sum":9,"customers_sum":36},
+{"id":2,"regions":"Portugal","st_a":10,"st_na":7,"contracts_sum":9,"customers_sum":8},
+{"id":3,"regions":"US_Taxes","st_a":10,"st_na":7,"contracts_sum":9,"customers_sum":15}
+]

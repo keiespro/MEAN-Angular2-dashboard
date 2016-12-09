@@ -1,0 +1,66 @@
+<!--<h1>Hello {{title}}</h1>
+<div>
+  <label>Hero name:</label> <input #heroName />
+  <button (click)="add(heroName.value); heroName.value=''">
+    Add
+  </button>
+</div>
+  	<ul class="heroes">
+  		<li *ngFor="let hero of heroes" (click) = "onSelect(hero)" [class.selected]="hero === selectedHero">
+  		<span class="badge">{{hero.id}}</span>{{hero.name}}
+      <button class="delete"
+  (click)="delete(hero); $event.stopPropagation()">x</button>
+  		</li>
+  	</ul>
+	<div *ngIf="selectedHero">
+    <h2>
+    {{selectedHero.name | uppercase}} is my hero
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+  </div>
+  -->
+
+<button class="btn btn-primary pull-right" (click)="gotoAddRegion()" >Add new Region</button>
+<table class="table table-striped col-md-9" [mfData]="regions" [mfRowsOnPage]="rowsOnPage" #mf="mfDataTable" >
+    <thead>
+    <tr>
+      <th >
+        <mfDefaultSorter by="region_name">Region</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter by="region_name">Description</mfDefaultSorter>
+      </th>
+      <th>
+        <mfDefaultSorter by="region_name">Partners</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter by="region_name">Customers</mfDefaultSorter>
+      </th>
+        <th >
+            <mfDefaultSorter by="st_a">Service templates(a/na)</mfDefaultSorter>
+        </th>
+        <th>
+            <mfDefaultSorter by="contracts_sum">Devices sum</mfDefaultSorter>
+        </th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let region of mf.data;let i = index;">
+        <td>{{region.region_name}}</td>
+      <td>{{region.description}}</td>
+      <td>{{region.partners}}</td>
+      <td>{{region.customers}}</td>
+       <td>{{region.st_a}}/{{region.st_na}}</td>
+        <td >{{region.devices_sum}}</td>
+      <td><button class="btn btn-info" (click)="editRegion(i)">Edit</button> <button class="btn btn-danger" (click) = "deleteRegion(i)">Delete</button></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="7">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,100 @@
+
+<div *ngIf="servicetemplate" class="">
+    <h2>{{servicetemplate.name}}</h2>
+  <div class="form-group row pull-right" >
+    <button class="btn btn-primary " (click)="editServiceTemplate()">Edit ServiceTemplate settings</button>
+     <button class="btn btn-default " (click)="goBack()">Back</button>
+  </div>
+    <div class="form-group row" *ngIf="servicetemplate.state == 1">
+      <label class=" col-form-label">State:Active</label>
+    </div>
+  <div class="form-group row" *ngIf="servicetemplate.state == 0">
+    <label class=" col-form-label">State:Inactive</label>
+  </div>
+  <div class="form-group row" >
+    <label class=" col-form-label">logPayload:{{servicetemplate.log_payload}}</label>
+  </div>
+  <div class="form-group row" >
+    <label class=" col-form-label">maxQueueTime:--</label>
+  </div>
+  <div class="form-group row" >
+    <label class=" col-form-label">zeroQueueTime:--</label>
+  </div>
+  <div class="form-group row" >
+    <label class=" col-form-label">forwardAppIContainer:{{servicetemplate.forward_msg_header}}</label>
+  </div>
+  <div class="form-group row" >
+    <label class=" col-form-label">udidWakeupNotification:{{servicetemplate.notify_on_wakeup}}</label>
+  </div>
+  <div class="form-group row" >
+    <label class=" col-form-label">submittedMsgFlushoutDelay:--</label>
+  </div>
+  <div class="form-group row" >
+    <label class=" col-form-label">defaultProfile:{{servicetemplate.default_profile}}</label>
+  </div>
+  <div class="form-group row" >
+    <label class=" col-form-label">wakeupDuration:{{servicetemplate.wakeup_duration}}</label>
+  </div>
+  <div class="form-group row" >
+    <label class=" col-form-label">quotaMsg:--</label>
+  </div>
+  <div class="form-group row" >
+    <label class=" col-form-label">quotaMbytes:--</label>
+  </div>
+  <div class="form-group row" >
+    <label class=" col-form-label">DedicatedConnectionProfile:{{servicetemplate.dedicated_connection_profile}}</label>
+  </div>
+</div>
+
+<h2>Devices</h2>
+
+<table class="table table-striped col-md-9" [mfData]="devices" [mfRowsOnPage]="rowsOnPage_devices" #mfd="mfDataTable" >
+  <thead>
+  <tr>
+    <th >
+      <mfDefaultSorter by="udid">UDID</mfDefaultSorter>
+    </th>
+    <th>
+      <mfDefaultSorter by="imsi">imsi</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="imei">imei</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="iccid">iccid</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="euiccid">euiccid</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="last_activity">last activity</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter by="ip">ip</mfDefaultSorter>
+    </th>
+    <th >
+      <mfDefaultSorter >State</mfDefaultSorter>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of mfd.data;let i = index;">
+    <td>{{item.udid}}</td>
+    <td>{{item.imsi}}</td>
+    <td>{{item.imei}}</td>
+    <td>{{item.iccid}}</td>
+    <td>{{item.euiccid}}</td>
+    <td>{{item.last_activity}}</td>
+    <td>{{item.ip}}</td>
+    <td>State here</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="9">
+      <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+    </td>
+  </tr>
+  </tfoot>
+</table>
+<button class="btn btn-info pull-right">Export Device list</button>

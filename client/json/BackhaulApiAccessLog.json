@@ -1,0 +1,1 @@
+{ "_id" : { "$oid" : "57483c456f1cad0a54716500" }, "customer_id" : 1, "name" : "", "surname" : "", "user_id" : { "$oid" : "547382943fc884447a767d58" }, "role" : "", "api_call" : "", "request_time" : "" }

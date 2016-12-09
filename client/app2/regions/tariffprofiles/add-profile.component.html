@@ -1,0 +1,47 @@
+
+
+    <h2>{{title}}</h2>
+    <div class="form-group row">
+      <label for="name" class="col-xs-2 col-form-label">Name</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="profile.name"  id="name" placeholder="TariffProfile Name"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="description" class="col-xs-2 col-form-label">amountPerMsg</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="profile.amount_per_msg"  id="description" placeholder="amountPerMsg"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="port" class="col-xs-2 col-form-label">amountPerKbyte</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="profile.amount_per_kbyte"  id="port" placeholder="amountPerKbyte"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="protocol" class="col-xs-2 col-form-label">amountPerApi</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="profile.amount_per_api"  id="protocol" placeholder="amountPerApi"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="state" class="col-xs-2 col-form-label">state</label>
+      <div class="col-xs-4">
+
+        <input class="form-control" type="checkbox"  [(ngModel)]="profile.state"  id="state"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="unit" class="col-xs-2 col-form-label">Unit</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="profile.unit"  id="unit" placeholder="unit"/>
+      </div>
+    </div>
+<div class="form-group row">
+  <div class="col-xs-4">
+	    <button class="btn btn-primary" (click)="add()">{{btn_name}}</button>
+	    <button class="btn " (click)="goBack()">Back</button>
+  </div>
+</div>
+

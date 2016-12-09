@@ -1,0 +1,49 @@
+
+<button class="btn btn-primary pull-right" (click)="gotoAddCustomer()" >Add new Customer</button>
+<table class="table table-striped col-md-9" [mfData]="customers" [mfRowsOnPage]="rowsOnPage" #mf="mfDataTable" >
+    <thead>
+    <tr>
+        <th>
+            <mfDefaultSorter by="partner_name">Partner</mfDefaultSorter>
+        </th>
+        <th >
+            <mfDefaultSorter by="name">Name</mfDefaultSorter>
+        </th>
+        <th >
+            <mfDefaultSorter by="address">Address</mfDefaultSorter>
+        </th>
+      <th >
+        <mfDefaultSorter by="customer_type">Customer Type</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter>Service Templates & actions</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter>Payment Account</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter >Login as Customer</mfDefaultSorter>
+      </th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let customer of mf.data;let i = index;">
+        <td>{{customer.partner_name}}</td>
+        <td>{{customer.name}}</td>
+      <td >{{customer.address}}</td>
+      <td>{{customer.customer_type}}</td>
+      <td >{{customer.service_templates}}</td>
+      <td>{{customer.payment_account}}</td>
+      <td ><button class="btn btn-primary">Login as</button></td>
+      <td><button class="btn btn-info" (click)="editCustomer(i)">Edit</button> <button class="btn btn-danger" (click) = "deleteCustomer(i)">Delete</button></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="8">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>

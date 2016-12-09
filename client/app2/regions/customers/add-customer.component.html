@@ -1,0 +1,40 @@
+
+
+    <h2>{{title}}</h2>
+    <div class="form-group row">
+      <label for="partner-name" class="col-xs-2 col-form-label">Partner Name</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="customer.partner_name"  id="partner-name" placeholder="Partner Name"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="customer-name" class="col-xs-2 col-form-label">Customer Name</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="customer.name"  id="customer-name" placeholder="Customer Name"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="address" class="col-xs-2 col-form-label">Address</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="customer.address"  id="address" placeholder="Address"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="customer-type" class="col-xs-2 col-form-label">Customer Type</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="customer.customer_type"  id="customer-type" placeholder="Customer Type"/>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="payment-account" class="col-xs-2 col-form-label">Payment Account</label>
+      <div class="col-xs-4">
+        <input  class="form-control" type="text" [(ngModel)]="customer.payment_account"  id="payment-account" placeholder="Payment Account"/>
+      </div>
+    </div>
+<div class="form-group row">
+  <div class="col-xs-4">
+	    <button class="btn btn-primary" (click)="add()">{{btn_name}}</button>
+	    <button class="btn " (click)="goBack()">Back</button>
+  </div>
+</div>
+

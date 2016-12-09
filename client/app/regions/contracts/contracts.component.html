@@ -1,0 +1,53 @@
+
+<button class="btn btn-primary pull-right" (click)="gotoAddContract()" >Add new Contract</button>
+<table class="table table-striped col-md-9" [mfData]="contracts" [mfRowsOnPage]="rowsOnPage" #mf="mfDataTable" >
+    <thead>
+    <tr>
+        <th>
+            <mfDefaultSorter by="contract_number">ContractId</mfDefaultSorter>
+        </th>
+        <th >
+            <mfDefaultSorter by="customer_name">Customer_name</mfDefaultSorter>
+        </th>
+        <th >
+            <mfDefaultSorter by="account_balance">Account_balance</mfDefaultSorter>
+        </th>
+      <th >
+        <mfDefaultSorter by="contract_duration_months">Duration(Mon)</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter >Signed</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter>State</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter by="contract_type">Contract Type</mfDefaultSorter>
+      </th>
+      <th >
+        <mfDefaultSorter by="tariff_id">Tariff</mfDefaultSorter>
+      </th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let contract of mf.data;let i = index;">
+      <td>{{contract.contract_id}}</td>
+      <td>{{contract.customer_name}}</td>
+      <td>{{contract.account_balance}}</td>
+      <td>{{contract.contract_duration_months}}</td>
+      <td><input type="checkbox" [(ngModel)]="contract.signed" disabled="true"/></td>
+      <td><input type="checkbox" [(ngModel)]="contract.state" disabled="true"/></td>
+      <td>{{contract.contract_type}}</td>
+      <td>{{contract.tariff_id}}</td>
+      <td><button class="btn btn-info" (click)="editContract(i)" >Edit</button> <button class="btn btn-danger" (click) = "deleteContract(i)">Delete</button></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="6">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>
