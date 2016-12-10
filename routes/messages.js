@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-var db= mongojs('mydb',['TransactionTrace','SystemQueue']);
+var config = require('./config');
+var conf_str = config.database.username + ":"+config.database.password + "@" + config.database.host + ":" + config.database.port + "/" + config.database.db + "?authSource="+config.database.authdb;
+var db= mongojs(conf_str,['CustomerAccount']);
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 	db.Regions.find(function(err,regions){
