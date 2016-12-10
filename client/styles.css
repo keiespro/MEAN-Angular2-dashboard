@@ -2,7 +2,7 @@
   padding-left: 0;
   margin-left: 0;
   height: auto;
-  margin-left:16.67%;
+  margin-left:280px;
 }
 @media only screen and (min-width: 561px) {
   #page-wrapper.open {
@@ -275,8 +275,11 @@ ul.sidebar .sidebar-list a:hover,
   /* Sidebar header and footer color */
   background: #2d3e63;
 }
+#sidebar-wrapper li{
+  list-style: none;
+}
 ul.sidebar {
-  position: absolute;
+
   top: 0;
   bottom: 0;
   padding: 0;
